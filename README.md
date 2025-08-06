@@ -26,27 +26,36 @@ A full-stack web application built as part of a 4-week summer internship project
 ## 📁 Project Structure
 
 ToDoApp/
+├── ToDoApp.Api/               # ASP.NET Core Web API
+│   ├── Controllers/           # API endpoints (ToDo & Category)
+│   ├── Data/                  # Database configuration (DbContext)
+│   ├── Migrations/            # EF Core migrations
+│   ├── Program.cs             # Application entry point
+│   └── appsettings.json       # API configuration
 │
-├── ToDoApp.Api/ # ASP.NET Core Web API
-│ ├── Controllers/
-│ ├── Data/
-│ ├── Migrations/
-│ └── appsettings.json
+├── ToDoApp.Core/              # Domain models and interfaces
+│   ├── Models/                # ToDo.cs, Category.cs
+│   └── Interfaces/            # IToDoService, IRepository, etc.
 │
-├── ToDoApp.Core/ # Shared domain models
+├── ToDoApp.Infrastructure/   # EF Core implementation layer
+│   ├── Repositories/          # Data access logic
+│   └── Services/              # Business logic implementation
 │
-├── ToDoApp.Infrastructure/ # EF Core DbContext and Repositories
+├── todo-frontend/             # Angular Frontend Application
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/    # todo-list & todo-form components
+│   │   │   ├── models/        # ToDo and Category models
+│   │   │   └── services/      # API communication services
+│   │   └── index.html         # Main HTML page
+│   └── angular.json           # Angular config file
 │
-├── todo-frontend/ # Angular Frontend Application
-│ └── src/app/
-│ ├── components/
-│ ├── models/
-│ └── services/
+├── data/                      # SQLite DB volume (todo.db)
 │
-├── data/ # SQLite database mount folder
-├── docker-compose.yml # Multi-container orchestration
-├── Dockerfile # Backend image
-└── README.md
+├── docker-compose.yml         # Docker multi-container orchestration
+├── Dockerfile                 # Backend Docker image
+└── README.md                  # Project documentation
+
 
 ## ⚙️ Getting Started
 
@@ -75,3 +84,8 @@ Re-run migrations using:
 dotnet ef database update --project ToDoApp.Infrastructure --startup-project ToDoApp.Api
 ##📄 License
 This project was developed for educational purposes as part of a university summer internship.
+## 🖼️ Screenshots
+### 📌 Homepage
+<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/a675b509-83c3-4fde-ae04-fe6a672676af" />
+### ➕ Add New Task
+<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/fbac5b36-4644-4ae2-b386-f2bd3f432347" />
