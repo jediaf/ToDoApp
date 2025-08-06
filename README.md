@@ -67,7 +67,12 @@ ToDoApp/
 > ✅ No need to install .NET SDK or Node.js locally – all runs inside containers!
 
 ---
+### 📌 Homepage
+<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/fcbff27d-70e7-45db-9de8-42c5411b0d9b" />
+### ➕ Add New Task
+<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/79bd5277-2301-400f-a9fa-7a8026f6b2f5" />
 
+---
 ### 🔧 Setup Instructions
 
 ```bash
@@ -84,8 +89,4 @@ Re-run migrations using:
 dotnet ef database update --project ToDoApp.Infrastructure --startup-project ToDoApp.Api
 ##📄 License
 This project was developed for educational purposes as part of a university summer internship.
-## 🖼️ Screenshots
-### 📌 Homepage
-<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/a675b509-83c3-4fde-ae04-fe6a672676af" />
-### ➕ Add New Task
-<img width="1620" height="1496" alt="To-Do App" src="https://github.com/user-attachments/assets/fbac5b36-4644-4ae2-b386-f2bd3f432347" />
+
