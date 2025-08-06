@@ -1,0 +1,19 @@
+services:
+  todo-api:
+    build:
+      context: .
+      dockerfile: ToDoApp.Api/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+
+    depends_on:
+      - todo-frontend
+
+  todo-frontend:
+    build:
+      context: ./todo-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"

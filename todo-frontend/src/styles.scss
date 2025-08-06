@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(
+    to right,
+    #f0fff4,
+    #e8f9ef
+  ); // yeşilimsi açık arka plan
+  color: #222;
+}
+
+.todo-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #1aa034;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 24px;
+  background: #1aa034;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-button:hover {
+  background: #168d2c;
+}
+
+.category-group {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.category-header {
+  font-size: 1.3rem;
+  color: #1aa034;
+  border-left: 5px solid #1aa034;
+  padding-left: 10px;
+  margin-bottom: 12px;
+}
+
+.todo-card {
+  background: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #1aa03444;
+  transition: background 0.3s ease;
+}
+
+.todo-card.completed {
+  background: #ecf9f0;
+  color: #777;
+}
+
+.status-done {
+  background: linear-gradient(135deg, #1aa034, #168d2c);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.status-pending {
+  background: #ffe135;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}

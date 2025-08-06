@@ -1,0 +1,65 @@
+<div class="todo-container">
+  <h1>To-Do App</h1>
+
+  <button (click)="addNewTodo()" class="add-button">Add New Task</button>
+
+  <div *ngIf="showForm" class="todo-form-wrapper">
+    <app-todo-form
+      [todo]="selectedTodo"
+      [categories]="categories"
+      (formSubmitted)="onFormSubmitted()"
+    ></app-todo-form>
+  </div>
+
+  <div *ngIf="getCategoryKeys().length === 0 && !showForm" class="no-todos">
+    No tasks yet. Start by adding a new one!
+  </div>
+
+  <div *ngFor="let categoryKey of getCategoryKeys()" class="category-group">
+    <h3
+      class="category-header"
+      *ngIf="
+        categoryKey !== 'Uncategorized' ||
+        (categoryKey === 'Uncategorized' &&
+          groupedTodos &&
+          groupedTodos['Uncategorized'] &&
+          groupedTodos['Uncategorized'].length > 0)
+      "
+    >
+      {{ categoryKey }}
+    </h3>
+
+    <div
+      *ngFor="let todo of groupedTodos[categoryKey]"
+      class="todo-card"
+      [ngClass]="{ completed: todo.isCompleted }"
+    >
+      <div class="todo-title">
+        {{ todo.title }}
+        <span
+          class="status-toggle"
+          [ngClass]="{
+            'status-pending': !todo.isCompleted,
+            'status-done': todo.isCompleted
+          }"
+          (click)="toggleCompleted(todo)"
+        >
+          {{ todo.isCompleted ? "Done" : "Pending" }}
+        </span>
+      </div>
+
+      <div *ngIf="todo.description" class="todo-description">
+        {{ todo.description }}
+      </div>
+
+      <div class="todo-created">
+        Created At: {{ todo.createdAt | date : "short" }}
+      </div>
+
+      <div class="todo-actions">
+        <button class="btn-edit" (click)="editTodo(todo)">Edit</button>
+        <button class="btn-delete" (click)="deleteTodo(todo.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

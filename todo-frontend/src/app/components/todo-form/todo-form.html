@@ -1,0 +1,72 @@
+<div class="todo-form">
+  <h2>{{ isEditMode ? "✏️ Edit Task" : "📝 Add New Task" }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="currentTodo.title"
+        name="title"
+        placeholder="Enter task title"
+        required
+        minlength="3"
+        maxlength="100"
+      />
+      <div
+        *ngIf="!currentTodo.title || currentTodo.title.length < 3"
+        class="error-message"
+      >
+        Title is required and must be at least 3 characters long.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        [(ngModel)]="currentTodo.description"
+        name="description"
+        placeholder="Enter task details (optional)"
+        maxlength="500"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select
+        id="category"
+        [(ngModel)]="currentTodo.categoryId"
+        name="category"
+      >
+        <option [ngValue]="null">Uncategorized</option>
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input
+        type="checkbox"
+        id="isCompleted"
+        [(ngModel)]="currentTodo.isCompleted"
+        name="isCompleted"
+      />
+      <label for="isCompleted">Mark as Completed</label>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="!currentTodo.title || currentTodo.title.length < 3"
+        class="submit-button"
+      >
+        {{ isEditMode ? "💾 Update" : "➕ Add Task" }}
+      </button>
+      <button type="button" (click)="cancel()" class="cancel-button">
+        ✖ Cancel
+      </button>
+    </div>
+  </form>
+</div>
